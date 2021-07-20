@@ -49,6 +49,7 @@ const WorkspaceTest = () => {
       }}
     >
       <Button
+        href="./tabs-home"
         text="Back"
         icon={<IconEdit />}
         variant="ghost"
@@ -94,7 +95,11 @@ const WorkspaceTest = () => {
       </div>
       <ActiveMainPageContext.Provider value={activeMainPageRef.current}>
         <div
-          style={{ height: "70vh", width: sizeMap[workspaceSize], boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.2)" }} // eslint-disable-line react/forbid-dom-props
+          style={{
+            height: "70vh",
+            width: sizeMap[workspaceSize],
+            boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.2)",
+          }} // eslint-disable-line react/forbid-dom-props
         >
           <Workspace
             id="overlay-test-id"

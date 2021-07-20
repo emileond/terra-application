@@ -49,6 +49,7 @@ const WorkspaceTest = () => {
       }}
     >
       <Button
+        href="./tabs-home"
         text="Back"
         icon={<IconEdit />}
         variant="ghost"
