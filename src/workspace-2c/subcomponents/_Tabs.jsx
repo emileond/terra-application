@@ -348,7 +348,7 @@ class Tabs extends React.Component {
             role="region"
             tabIndex={-1}
             ref={this.regionsRef}
-            style={{ opacity: 1 }}
+            style={{ opacity: 0 }}
           >
             <span
               aria-live="assertive"
