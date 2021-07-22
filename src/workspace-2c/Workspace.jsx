@@ -262,14 +262,15 @@ const Workspace = ({
   };
 
   const tabSlideSmallSize = (tabSlideRef, tabId) => {
+    console.log("Small: ", tabId);
     switch (tabId) {
-      case "Apples":
+      case "Continents":
         tabTranslateSlide(tabSlideRef, 0);
         break;
-      case "Oranges":
+      case "Countries":
         tabTranslateSlide(tabSlideRef, 0);
         break;
-      case "Strawberries":
+      case "Cities":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -280,7 +281,7 @@ const Workspace = ({
         });
         tabTranslateSlide(tabSlideRef, 0);
         break;
-      case "Pineapples":
+      case "Landmarks":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -291,7 +292,7 @@ const Workspace = ({
         });
         tabTranslateSlide(tabSlideRef, -71);
         break;
-      case "Lemons":
+      case "Languages":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -302,7 +303,7 @@ const Workspace = ({
         });
         tabTranslateSlide(tabSlideRef, -147);
         break;
-      case "Kiwis":
+      case "Currencies":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -320,17 +321,17 @@ const Workspace = ({
 
   const tabSlideMedSize = (tabSlideRef, tabId) => {
     switch (tabId) {
-      case "Apples":
+      case "Continents":
         tabTranslateSlide(tabSlideRef, 0);
         break;
-      case "Oranges":
+      case "Countries":
         console.log("Oras");
         tabTranslateSlide(tabSlideRef, 0);
         break;
-      case "Strawberries":
+      case "Cities":
         tabTranslateSlide(tabSlideRef, 0);
         break;
-      case "Lemons":
+      case "Languages":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -341,7 +342,7 @@ const Workspace = ({
         });
         tabTranslateSlide(tabSlideRef, -17);
         break;
-      case "Kiwis":
+      case "Currencies":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
