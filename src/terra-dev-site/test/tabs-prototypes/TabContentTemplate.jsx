@@ -32,7 +32,20 @@ const textMapping = {
     equator). Why is that? This might be just a feature of our current point
     in geological time because some million years ago, the bulk of the
     planet's landmass was in the Southern Hemisphere.
-  </p>`,
+  </p>
+  <p>Go to:</p>
+  <ul>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#Africa">Africa</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#Americas">The Americas</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#Asia">Asia</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#Oceania">Australia / Oceania</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#Europe">Europe</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#Antarctica">Antarctica</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#LandOcean">Land and Ocean</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#Formation">Formation of Continents</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#NewContinents">New Continents</a></li>
+      <li><a href="https://www.nationsonline.org/oneworld/continents.htm#HowmanyContinents">How Many Continents?</a></li>
+  </ul>`,
   countries: `<h2>Countries by Continents</h2>
   <h3>Asia</h3>
   <p>Includes 50 countries, and it is the most populated continent, the 60% of the total population of the Earth live
@@ -43,13 +56,38 @@ const textMapping = {
   <h3>North America</h3>
   <p>Includes 23 countries led by the USA as the largest economy in the world.</p>
   <h3>South America</h3>
-  <p>Comprises 12 countries. Here is located the largest forest, the Amazon rainforest, which covers 30% of the South America total area.</p>
+  <p>Comprises 12 countries. Here is located the largest forest, the Amazon rainforest, which covers 30% of the South
+      America total area.</p>
   <h3>Europe</h3>
   <p>Includes 51 countries, and it is the second most populated continent, the second largest after Asia.</p>
   <h3>Australia</h3>
-  <p>Includes 14 countries. It is the least populated continent after Antarctica, only 0.2% of the total Earth population live here.</p>
+  <p>Includes 14 countries. It is the least populated continent after Antarctica, only 0.2% of the total Earth population
+      live here.</p>
   <h3>Antarctica</h3>
-  <p>Is the coldest continent in the world, completely covered with ice. There are no permanent inhabitants, except of scientists maintaining research stations in Antarctica.</p>`,
+  <p>Is the coldest continent in the world, completely covered with ice. There are no permanent inhabitants, except of
+      scientists maintaining research stations in Antarctica.</p>
+      <h3>Countries by Continents</h3>
+      <p>Listed by Continents, the countries, population and the capital cities.</p>
+      <ul>
+          <li><a href="https://www.nationsonline.org/oneworld/africa.htm">Africa</a></li>
+          <li><a href="https://www.nationsonline.org/oneworld/america.htm">The Americas</a></li>
+          <li><a href="https://www.nationsonline.org/oneworld/asia.htm"></a>Asia</li>
+          <li><a href="https://www.nationsonline.org/oneworld/europe.htm">Europe</a></li>
+          <li><a href="https://www.nationsonline.org/oneworld/oceania.htm">Australia / Oceania</a></li>
+      </ul>
+      <h3>Travel</h3>
+      <p>Tourism Destinations by various categories.</p>
+      <ul>
+          <li><a href="https://www.nationsonline.org/oneworld/travel_destinations.html">World's Top Travel Destinations</a></li>
+          <li><a href="https://www.nationsonline.org/oneworld/travel_warning.htm">World Travel Warnings</a></li>
+      </ul>
+      <h3>First, Second and Third World</h3>
+      <p>A list of states of the first, second and the third world, with an explanation of the terms.</p>
+      <ul>
+          <li><a href="https://www.nationsonline.org/oneworld/first.htm">Countries of the "First World"</a></li>
+          <li><a href="https://www.nationsonline.org/oneworld/second.htm">Countries of the "Second World"</a></li>
+          <li><a href="https://www.nationsonline.org/oneworld/third_world.htm">Countries of the "Third World"</a></li>
+      </ul>`,
   cities: `<h2>The global geography of world cities</h2>
   <p>What are termed ‘world’ cities or ‘global’ cities command and control the world economy, and are centres for
       transnational corporations (TNCs). They are mostly among the world’s wealthy cities; if not, they are at least among
