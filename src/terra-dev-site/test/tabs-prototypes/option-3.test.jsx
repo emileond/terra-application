@@ -38,7 +38,8 @@ const WorkspaceTest = () => {
 
   return (
     // eslint-disable-next-line react/forbid-dom-props
-    <div style={{ background: "linear-gradient(180deg, rgba(248,247,248,1) 0%, rgba(222,221,222,1) 100%)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%" }}>
+    <div style={{ background: "linear-gradient(180deg, rgba(248,247,248,1) 0%, rgba(222,221,222,1) 100%)", display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "center", height: "100%" }}>
+      <h1 style={{fontSize: "26px", margin: "2rem 0 1.5rem 0"}} >Option 3 Prototype</h1>
       <Button href="./tabs-home" text="Back" icon={<IconEdit />} variant="ghost" style={{ position: "fixed", top: "32px", left: "32px" }} />
       <div style={{ display: "flex", alignItems: "center", marginBottom: "32px", padding: "12px", borderRadius: "8px", boxShadow: "inset 0px 1px 2px 0px rgba(0,0,0,0.25)", background: "#ebeaeb" }} >
         <span tabIndex={0} style={{ textAlign: "left", marginRight: "12px", fontWeight: "bold" }}>Adjust Viewport Size</span>

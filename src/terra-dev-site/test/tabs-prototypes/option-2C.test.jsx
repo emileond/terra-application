@@ -43,11 +43,12 @@ const WorkspaceTest = () => {
           "linear-gradient(180deg, rgba(248,247,248,1) 0%, rgba(222,221,222,1) 100%)",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "start",
         alignItems: "center",
         height: "100%",
       }}
     >
+      <h1 style={{fontSize: "26px", margin: "2rem 0 1.5rem 0"}} >Option 2 Prototype</h1>
       <Button
         href="./tabs-home"
         text="Back"
@@ -96,7 +97,11 @@ const WorkspaceTest = () => {
       </div>
       <ActiveMainPageContext.Provider value={activeMainPageRef.current}>
         <div
-          style={{ height: "70vh", width: sizeMap[workspaceSize], boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.2)" }} // eslint-disable-line react/forbid-dom-props
+          style={{
+            height: "70vh",
+            width: sizeMap[workspaceSize],
+            boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.2)",
+          }} // eslint-disable-line react/forbid-dom-props
         >
           <Workspace
             id="overlay-test-id"
