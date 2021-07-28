@@ -67,6 +67,7 @@ const WorkspaceTest = () => {
         }}
       >
         <span
+          tabIndex={0}
           style={{ textAlign: "left", marginRight: "12px", fontWeight: "bold" }}
         >
           Adjust Viewport Size

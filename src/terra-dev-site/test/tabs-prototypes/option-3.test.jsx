@@ -41,7 +41,7 @@ const WorkspaceTest = () => {
     <div style={{ background: "linear-gradient(180deg, rgba(248,247,248,1) 0%, rgba(222,221,222,1) 100%)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%" }}>
       <Button href="./tabs-home" text="Back" icon={<IconEdit />} variant="ghost" style={{ position: "fixed", top: "32px", left: "32px" }} />
       <div style={{ display: "flex", alignItems: "center", marginBottom: "32px", padding: "12px", borderRadius: "8px", boxShadow: "inset 0px 1px 2px 0px rgba(0,0,0,0.25)", background: "#ebeaeb" }} >
-        <span style={{ textAlign: "left", marginRight: "12px", fontWeight: "bold" }}>Adjust Viewport Size</span>
+        <span tabIndex={0} style={{ textAlign: "left", marginRight: "12px", fontWeight: "bold" }}>Adjust Viewport Size</span>
         <ButtonGroup
           id="controlled-button-group"
           selectedKeys={[workspaceSize]}
