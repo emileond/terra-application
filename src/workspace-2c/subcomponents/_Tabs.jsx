@@ -277,7 +277,7 @@ class Tabs extends React.Component {
   ariaLiveOptions(itemKey) {
     const refElements = this.containerRef.current;
     const numOfItem = itemKey.split("-").pop();
-    const totalItems = refElements.children.length - 1; // is minus one because of the aria region that was added
+    const totalItems = refElements.children.length; // is minus one because of the aria region that was added
     refElements.children.forEach((elem) => {
       if (elem.id.includes(itemKey)) {
         this.setState({
@@ -327,6 +327,16 @@ class Tabs extends React.Component {
 
     return (
       <>
+        <div
+          role="region"
+          tabIndex={-1}
+          ref={this.regionsRef}
+          style={{ opacity: 1, position: "absolute" }}
+        >
+          <span aria-live="assertive" aria-atomic="true">
+            <span>{this.state.addedBannersLog}</span>
+          </span>
+        </div>
         <TerraCustomMenu
           tabs={allTabs}
           ariaLiveOptions={this.ariaLiveOptions}
@@ -344,20 +354,6 @@ class Tabs extends React.Component {
           aria-owns={hiddenIds.join(" ")}
         >
           {visibleTabs}
-          <div
-            role="region"
-            tabIndex={-1}
-            ref={this.regionsRef}
-            style={{ opacity: 0 }}
-          >
-            <span
-              aria-live="assertive"
-              aria-atomic="true"
-              aria-labelledby="button-all-tabs"
-            >
-              <span>{this.state.addedBannersLog}</span>
-            </span>
-          </div>
         </div>
       </>
     );

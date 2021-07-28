@@ -16,6 +16,7 @@ const buttonAllTabsStyle = {
   // borderTopLeftRadius: "3px",
   minWidth: "87px",
   backgroundImage: "linear-gradient(to bottom, #fff, #dedfe0)",
+  cursor: "pointer",
 };
 
 const menuWrapperContainer = {
@@ -130,8 +131,9 @@ class TerraCustomMenu extends React.Component {
                     text={tab.label}
                     key={tab.itemKey}
                     isSelected={
-                      this.props.tabActiveKey === tab.itemKey ||
-                      this.state.groupSelectedIndex === index
+                      this.props.tabActiveKey
+                        ? this.props.tabActiveKey === tab.itemKey
+                        : this.state.groupSelectedIndex === index
                     }
                     onClick={() => {
                       this.handleToggle1OnClick(tab.onSelect, tab.itemKey);
