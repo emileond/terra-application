@@ -151,10 +151,6 @@
 
   .tab-header {
     margin-bottom: 0;
-    margin-top: var(
-      --terra-application-workspace-tab-header-margin-top,
-      1.0714rem
-    );
     width: calc(
       100% - var(--terra-application-workspace-tab-header-width, 3rem)
     );
