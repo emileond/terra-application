@@ -74,6 +74,7 @@ const WorkspaceTest = () => {
           Adjust Viewport Size
         </span>
         <ButtonGroup
+          role="group"
           aria-labelledby="buttongroupLabel"
           id="controlled-button-group"
           selectedKeys={[workspaceSize]}
