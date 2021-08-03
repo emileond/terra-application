@@ -44,6 +44,7 @@ const WorkspaceTest = () => {
       <div id="buttongroupLabel" style={{ display: "flex", alignItems: "center", marginBottom: "32px", padding: "12px", borderRadius: "8px", boxShadow: "inset 0px 1px 2px 0px rgba(0,0,0,0.25)", background: "#ebeaeb" }} >
         <span style={{ textAlign: "left", marginRight: "12px", fontWeight: "bold" }}>Adjust Viewport Size</span>
         <ButtonGroup
+          role="group"
           aria-labelledby="buttongroupLabel"
           id="controlled-button-group"
           selectedKeys={[workspaceSize]}
