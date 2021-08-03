@@ -103,6 +103,9 @@ class TerraCustomMenu extends React.Component {
   }
 
   render() {
+    if (this.getButtonNode()) {
+      this.getButtonNode().style.width = "123px";
+    }
     return (
       <div style={menuWrapperContainer}>
         <div className={cx("menu-wrapper")} ref={this.setButtonNode}>
