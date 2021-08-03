@@ -111,6 +111,8 @@ const Tab = ({
   attributes["aria-selected"] = isSelected;
   attributes.style = { zIndex };
 
+  const tabNumber = id.split("-").pop();
+
   return (
     <div
       {...attributes}
@@ -120,6 +122,9 @@ const Tab = ({
       className={tabClassNames}
       title={label}
       ref={tabSlideRef}
+      aria-label={
+        label + `,${isSelected ? "selected" : ""},tab,${tabNumber} of 6`
+      }
     >
       <div className={cx("inner")}>
         <div className={cx("label")}>{label}</div>

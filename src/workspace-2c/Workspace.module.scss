@@ -151,10 +151,6 @@
 
   .tab-header {
     margin-bottom: 0;
-    margin-top: var(
-      --terra-application-workspace-tab-header-margin-top,
-      1.0714rem
-    );
     width: calc(
       100% - var(--terra-application-workspace-tab-header-width, 3rem)
     );
@@ -212,7 +208,7 @@
   }
   .shadowsContainerRight {
     right: -1px;
-    top: 186px;
+    top: 16px;
   }
   .imgShadows {
     height: 33px;
@@ -221,6 +217,6 @@
     display: none;
   }
   .shadowsClassAdjustment {
-    top: 205px !important;
+    top: 15px !important;
   }
 }
