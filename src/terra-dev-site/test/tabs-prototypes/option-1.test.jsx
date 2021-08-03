@@ -68,12 +68,13 @@ const WorkspaceTest = () => {
         }}
       >
         <span
-          tabIndex={0}
+          id="buttongroupLabel"
           style={{ textAlign: "left", marginRight: "12px", fontWeight: "bold" }}
         >
           Adjust Viewport Size
         </span>
         <ButtonGroup
+          aria-labelledby="buttongroupLabel"
           id="controlled-button-group"
           selectedKeys={[workspaceSize]}
           // eslint-disable-next-line react/jsx-indent-props
