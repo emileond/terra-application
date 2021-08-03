@@ -262,7 +262,6 @@ const Workspace = ({
   };
 
   const tabSlideSmallSize = (tabSlideRef, tabId) => {
-    console.log("Small: ", tabId);
     switch (tabId) {
       case "Continents":
         tabTranslateSlide(tabSlideRef, 0);
@@ -325,7 +324,6 @@ const Workspace = ({
         tabTranslateSlide(tabSlideRef, 0);
         break;
       case "Countries":
-        console.log("Oras");
         tabTranslateSlide(tabSlideRef, 0);
         break;
       case "Cities":
@@ -362,7 +360,7 @@ const Workspace = ({
     let tabSlideRef = {};
     if (mainContainer && activeSize !== "large") {
       if (tabType === "hiddenTab") {
-        mainContainer.children[2].children.forEach((elem) => {
+        mainContainer.children[3].children.forEach((elem) => {
           if (elem.id.includes(tabRef)) {
             tabSlideRef = elem;
           }
