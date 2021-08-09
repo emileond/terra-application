@@ -165,26 +165,30 @@ const Workspace = ({
     const activeItemIndex = parseInt(activeItemKey.split("-")[1]) - 1;
 
     if (activeSize === "medium" && activeItemIndex > 3) {
-      // const splicedTab = tabData.splice(activeItemIndex, 1);
-      // console.log(splicedTab[0]);
-      // tabData.splice(3, 0, splicedTab[0]);
-      const tempTab = tabData[3].label;
-      tabData[3].label = tabData[activeItemIndex].label;
-      tabData[activeItemIndex].isSelected = false;
-      tabData[activeItemIndex].label = tempTab;
-      tabData[3].isSelected = true;
+      // Mutating the tabData array order
+      const splicedTab = tabData.splice(activeItemIndex, 1);
+      tabData.splice(3, 0, splicedTab[0]);
+
+      // Swaping tab position with the one that is being selected:
+      // const tempTab = tabData[3].label;
+      // tabData[3].label = tabData[activeItemIndex].label;
+      // tabData[activeItemIndex].isSelected = false;
+      // tabData[activeItemIndex].label = tempTab;
+      // tabData[3].isSelected = true;
       reFocus(3);
     }
 
     if (activeSize === "small" && activeItemIndex > 1) {
-      // const splicedTab = tabData.splice(activeItemIndex, 1);
-      // console.log(splicedTab[0]);
-      // tabData.splice(1, 0, splicedTab[0]);
-      const tempTab = tabData[1].label;
-      tabData[1].label = tabData[activeItemIndex].label;
-      tabData[activeItemIndex].isSelected = false;
-      tabData[activeItemIndex].label = tempTab;
-      tabData[1].isSelected = true;
+      // Mutating the tabData array order
+      const splicedTab = tabData.splice(activeItemIndex, 1);
+      tabData.splice(1, 0, splicedTab[0]);
+
+      // Swaping tab position with the one that is being selected:
+      // const tempTab = tabData[1].label;
+      // tabData[1].label = tabData[activeItemIndex].label;
+      // tabData[activeItemIndex].isSelected = false;
+      // tabData[activeItemIndex].label = tempTab;
+      // tabData[1].isSelected = true;
       reFocus(1);
     }
 
