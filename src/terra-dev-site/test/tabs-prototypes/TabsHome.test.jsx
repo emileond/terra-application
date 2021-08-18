@@ -60,7 +60,7 @@ const WorkspaceTest = () => (
           marginBottom: "2rem",
         }}
       >
-        <a href="./option-2-c" style={{ color: "#275696", fontSize: "16px" }}>
+        <a href="./option-2" style={{ color: "#275696", fontSize: "16px" }}>
           Option 2 Prototype <IconRight />{" "}
         </a>
       </div>

@@ -331,7 +331,7 @@ class Tabs extends React.Component {
           role="region"
           tabIndex={-1}
           ref={this.regionsRef}
-          style={{ opacity: 1, position: "absolute" }}
+          style={{ opacity: 0, position: "absolute" }}
         >
           <span aria-live="assertive" aria-atomic="true">
             <span>{this.state.addedBannersLog}</span>
@@ -349,9 +349,9 @@ class Tabs extends React.Component {
           className={cx("tab-container", theme.className, "slidingTabsStyles")}
           ref={this.containerRef}
           role="tablist"
-          aria-label={ariaLabel}
-          aria-orientation="horizontal"
-          aria-owns={hiddenIds.join(" ")}
+          //aria-label={ariaLabel}
+          //aria-orientation="horizontal"
+          //aria-owns={hiddenIds.join(" ")}
         >
           {visibleTabs}
         </div>

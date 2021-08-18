@@ -107,7 +107,7 @@ const Tab = ({
   attributes.onKeyDown = onKeyDown;
   attributes.onBlur = enableFocusStyles;
   attributes.onMouseDown = disableFocusStyles;
-  attributes["data-focus-styles-enabled"] = false;
+  attributes["data-focus-styles-enabled"] = true;
   attributes["aria-selected"] = isSelected;
   attributes.style = { zIndex };
 
@@ -122,9 +122,6 @@ const Tab = ({
       className={tabClassNames}
       title={label}
       ref={tabSlideRef}
-      aria-label={
-        label + `,${isSelected ? "selected" : ""},tab,${tabNumber} of 6`
-      }
     >
       <div className={cx("inner")}>
         <div className={cx("label")}>{label}</div>

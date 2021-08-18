@@ -262,7 +262,6 @@ const Workspace = ({
   };
 
   const tabSlideSmallSize = (tabSlideRef, tabId) => {
-    console.log("Small: ", tabId);
     switch (tabId) {
       case "Continents":
         tabTranslateSlide(tabSlideRef, 0);
@@ -325,7 +324,6 @@ const Workspace = ({
         tabTranslateSlide(tabSlideRef, 0);
         break;
       case "Countries":
-        console.log("Oras");
         tabTranslateSlide(tabSlideRef, 0);
         break;
       case "Cities":
@@ -362,7 +360,7 @@ const Workspace = ({
     let tabSlideRef = {};
     if (mainContainer && activeSize !== "large") {
       if (tabType === "hiddenTab") {
-        mainContainer.children[2].children.forEach((elem) => {
+        mainContainer.children[3].children.forEach((elem) => {
           if (elem.id.includes(tabRef)) {
             tabSlideRef = elem;
           }
@@ -373,12 +371,13 @@ const Workspace = ({
       const tabId = tabSlideRef.title;
 
       const containerRight = mainContainer.getBoundingClientRect().right;
-      const menuRight = mainContainer.children[1].getBoundingClientRect().right;
+      const menuRight = 850; //mainContainer.children[2].getBoundingClientRect().right;  This is commented since we have added an dynamic aria-live that affects the fixed position of the HTML collection
       const currentTabLeft = tabSlideRef.getBoundingClientRect().left;
       const currentTabRight = tabSlideRef.getBoundingClientRect().right;
 
       if (activeSize === "small") {
         if (currentTabRight > containerRight) {
+          console.log(" tabRight mayor");
           setShadowsDisplay({
             displayLeft: {
               display: "none",
@@ -388,6 +387,10 @@ const Workspace = ({
             },
           });
           tabSlideSmallSize(tabSlideRef, tabId);
+        } else if (
+          currentTabRight < containerRight &&
+          currentTabLeft > menuRight
+        ) {
         } else if (currentTabLeft < menuRight) {
           tabSlideSmallSize(tabSlideRef, tabId);
         }
@@ -402,6 +405,10 @@ const Workspace = ({
             },
           });
           tabSlideMedSize(tabSlideRef, tabId);
+        } else if (
+          currentTabRight < containerRight &&
+          currentTabLeft > menuRight
+        ) {
         } else if (currentTabLeft < menuRight) {
           tabSlideMedSize(tabSlideRef, tabId);
         }
