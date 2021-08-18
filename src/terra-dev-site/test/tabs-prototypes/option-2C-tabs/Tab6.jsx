@@ -1,17 +1,15 @@
-import React from "react";
+import React from 'react';
+import StyledContent from '../StyledContent';
+import { WorkspaceContent } from '../../../../workspace-2c';
 
-import { WorkspaceContent } from "../../../../workspace-2c";
-
-import MockContent from "../MockContent";
-
-const Tab6 = () => {
+const Tab1 = () => {
   return (
-    <WorkspaceContent label="Currencies">
-      <MockContent tab="currencies" />
+    <WorkspaceContent label="Nutrition">
+      <StyledContent tab="Nutrition" />
     </WorkspaceContent>
   );
 };
 
-Tab6.titleKey = "derp";
+Tab1.titleKey = 'derp';
 
-export default Tab6;
+export default Tab1;
