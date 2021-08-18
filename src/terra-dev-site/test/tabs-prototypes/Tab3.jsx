@@ -1,13 +1,11 @@
 import React from "react";
-
+import StyledContent from "./StyledContent"
 import { WorkspaceContent } from "../../../workspace";
-
-import MockContent from "./MockContent";
 
 const Tab3 = () => {
   return (
-    <WorkspaceContent label="Cities">
-      <MockContent tab="cities" />
+    <WorkspaceContent label="Cardio">
+      <StyledContent tab="Cardio" />
     </WorkspaceContent>
   );
 };

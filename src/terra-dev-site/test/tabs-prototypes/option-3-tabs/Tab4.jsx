@@ -1,16 +1,15 @@
-import React from "react";
+import React from 'react';
+import StyledContent from '../StyledContent';
+import { WorkspaceContent } from '../../../../workspace-3';
 
-import { WorkspaceContent } from "../../../../workspace-3";
-import MockContent from "./../MockContent";
-
-const Tab4 = () => {
+const Tab1 = () => {
   return (
-    <WorkspaceContent label="Landmarks">
-      <MockContent tab="landmarks" />
+    <WorkspaceContent label="Weight">
+      <StyledContent tab="Weight" />
     </WorkspaceContent>
   );
 };
 
-Tab4.titleKey = "derp";
+Tab1.titleKey = 'derp';
 
-export default Tab4;
+export default Tab1;
