@@ -261,15 +261,15 @@ const Workspace = ({
     tabRef.parentNode.style.transform = `translate(${translateX}px, 0)`;
   };
 
-  const tabSlideSmallSize = (tabSlideRef, tabId) => {
+  const tabSlideSmallSize = (tabSlideRef, tabId, initialPosition) => {
     switch (tabId) {
-      case "Continents":
-        tabTranslateSlide(tabSlideRef, 0);
+      case "Sleep":
+        tabTranslateSlide(tabSlideRef, initialPosition);
         break;
-      case "Countries":
-        tabTranslateSlide(tabSlideRef, 0);
+      case "Steps":
+        tabTranslateSlide(tabSlideRef, initialPosition);
         break;
-      case "Cities":
+      case "Cardio":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -278,9 +278,9 @@ const Workspace = ({
             display: "block",
           },
         });
-        tabTranslateSlide(tabSlideRef, 0);
+        tabTranslateSlide(tabSlideRef, initialPosition);
         break;
-      case "Landmarks":
+      case "Weight":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -291,7 +291,7 @@ const Workspace = ({
         });
         tabTranslateSlide(tabSlideRef, -71);
         break;
-      case "Languages":
+      case "Water":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -302,7 +302,7 @@ const Workspace = ({
         });
         tabTranslateSlide(tabSlideRef, -147);
         break;
-      case "Currencies":
+      case "Nutrition":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -314,22 +314,22 @@ const Workspace = ({
         tabTranslateSlide(tabSlideRef, -223);
         break;
       default:
-        tabTranslateSlide(tabSlideRef, 0);
+        tabTranslateSlide(tabSlideRef, initialPosition);
     }
   };
 
-  const tabSlideMedSize = (tabSlideRef, tabId) => {
+  const tabSlideMedSize = (tabSlideRef, tabId, initialPosition) => {
     switch (tabId) {
-      case "Continents":
-        tabTranslateSlide(tabSlideRef, 0);
+      case "Sleep":
+        tabTranslateSlide(tabSlideRef, initialPosition);
         break;
-      case "Countries":
-        tabTranslateSlide(tabSlideRef, 0);
+      case "Steps":
+        tabTranslateSlide(tabSlideRef, initialPosition);
         break;
-      case "Cities":
-        tabTranslateSlide(tabSlideRef, 0);
+      case "Cardio":
+        tabTranslateSlide(tabSlideRef, initialPosition);
         break;
-      case "Languages":
+      case "Weight":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -340,7 +340,18 @@ const Workspace = ({
         });
         tabTranslateSlide(tabSlideRef, -17);
         break;
-      case "Currencies":
+      case "Water":
+        setShadowsDisplay({
+          displayLeft: {
+            display: "block",
+          },
+          displayRight: {
+            display: "none",
+          },
+        });
+        tabTranslateSlide(tabSlideRef, -94);
+        break;
+      case "Nutrition":
         setShadowsDisplay({
           displayLeft: {
             display: "block",
@@ -352,11 +363,11 @@ const Workspace = ({
         tabTranslateSlide(tabSlideRef, -94);
         break;
       default:
-        tabTranslateSlide(tabSlideRef, 0);
+        tabTranslateSlide(tabSlideRef, initialPosition);
     }
   };
 
-  const tabSlide = (tabRef, tabType) => {
+  const tabSlide = (tabRef, tabType, slidePosition = 0) => {
     let tabSlideRef = {};
     if (mainContainer && activeSize !== "large") {
       if (tabType === "hiddenTab") {
@@ -371,13 +382,12 @@ const Workspace = ({
       const tabId = tabSlideRef.title;
 
       const containerRight = mainContainer.getBoundingClientRect().right;
-      const menuRight = 850; //mainContainer.children[2].getBoundingClientRect().right;  This is commented since we have added an dynamic aria-live that affects the fixed position of the HTML collection
+      const containerLeft = mainContainer.getBoundingClientRect().left + 87;
       const currentTabLeft = tabSlideRef.getBoundingClientRect().left;
       const currentTabRight = tabSlideRef.getBoundingClientRect().right;
 
       if (activeSize === "small") {
         if (currentTabRight > containerRight) {
-          console.log(" tabRight mayor");
           setShadowsDisplay({
             displayLeft: {
               display: "none",
@@ -386,13 +396,13 @@ const Workspace = ({
               display: "block",
             },
           });
-          tabSlideSmallSize(tabSlideRef, tabId);
+          tabSlideSmallSize(tabSlideRef, tabId, slidePosition);
         } else if (
           currentTabRight < containerRight &&
-          currentTabLeft > menuRight
+          currentTabLeft > containerLeft
         ) {
-        } else if (currentTabLeft < menuRight) {
-          tabSlideSmallSize(tabSlideRef, tabId);
+        } else if (currentTabLeft < containerLeft) {
+          tabSlideSmallSize(tabSlideRef, tabId, slidePosition);
         }
       } else if (activeSize === "medium") {
         if (currentTabRight > containerRight) {
@@ -404,13 +414,13 @@ const Workspace = ({
               display: "block",
             },
           });
-          tabSlideMedSize(tabSlideRef, tabId);
+          tabSlideMedSize(tabSlideRef, tabId, slidePosition);
         } else if (
           currentTabRight < containerRight &&
-          currentTabLeft > menuRight
+          currentTabLeft > containerLeft
         ) {
-        } else if (currentTabLeft < menuRight) {
-          tabSlideMedSize(tabSlideRef, tabId);
+        } else if (currentTabLeft < containerLeft) {
+          tabSlideMedSize(tabSlideRef, tabId, slidePosition);
         }
       }
     }
