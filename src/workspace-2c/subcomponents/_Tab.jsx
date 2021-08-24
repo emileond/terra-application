@@ -79,18 +79,51 @@ const Tab = ({
     "tab",
     "tabs-new-styles",
     { "is-active": isSelected },
-    theme.className
+    theme.className,
+    id
   );
   const tabSlideRef = useRef(null);
   function onKeyDown(event) {
-    if (
-      event.nativeEvent.keyCode === KEY_RETURN ||
-      event.nativeEvent.keyCode === KEY_SPACE
-    ) {
+    const keyCode = event.nativeEvent.keyCode;
+    const idLastElement = event.target.id.split("-").pop();
+    if (keyCode === KEY_RETURN || keyCode === KEY_SPACE) {
       event.preventDefault();
       event.stopPropagation();
       onSelect(itemKey, metaData);
     } else {
+      if (keyCode === 36) {
+        tabSlide(
+          event.target.parentNode.getElementsByClassName(
+            "overlay-test-id-tab-1"
+          )[0],
+          "tabNormal"
+        );
+      } else if (keyCode === 35) {
+        tabSlide(
+          event.target.parentNode.getElementsByClassName(
+            "overlay-test-id-tab-6"
+          )[0],
+          "tabNormal"
+        );
+      } else if (idLastElement == 6 && keyCode === 39) {
+        tabSlide(
+          event.target.parentNode.getElementsByClassName(
+            "overlay-test-id-tab-1"
+          )[0],
+          "tabNormal"
+        );
+      } else if (idLastElement == 1 && keyCode === 37) {
+        tabSlide(
+          event.target.parentNode.getElementsByClassName(
+            "overlay-test-id-tab-6"
+          )[0],
+          "tabNormal"
+        );
+      } else if (event.target.nextSibling && keyCode === 39) {
+        tabSlide(event.target.nextSibling, "tabNormal");
+      } else if (event.target.previousSibling && keyCode === 37) {
+        tabSlide(event.target.previousSibling, "tabNormal");
+      }
       handleArrows(event, index, tabIds);
     }
   }
