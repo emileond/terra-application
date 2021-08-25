@@ -294,8 +294,8 @@ class Tabs extends React.Component {
 
       // if (activeSize === 'medium') {
       //   console.log('size changed to md')
-      //   // this.state.tabData.splice(3, 0, selectedTab);
-      //   // this.state.tabData[3].isSelected = true;
+      //   this.state.tabData.splice(3, 0, selectedTab);
+      //   this.state.tabData[3].isSelected = true;
       // }
 
       // if (activeSize === 'small') {
