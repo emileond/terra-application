@@ -151,7 +151,7 @@ const Workspace = ({
       for (let i = 0; i < tabsCollection.length; i++) {
         const tabId = tabsCollection[i].id.split("-").pop();
         if (tabId == target) {
-          selectedTab = tabsCollection[3];
+          selectedTab = tabsCollection[target];
           selectedTab.focus();
           break;
         }
@@ -173,10 +173,12 @@ const Workspace = ({
       // tabData[activeItemIndex].isSelected = false;
       // tabData[activeItemIndex].label = lastVisibleTab;
       // tabData[3].isSelected = true;
-      reFocus(3);
+      setTimeout(() => {
+        reFocus(3);
+      }, 0);
     }
 
-    if (activeSize === "small" && activeItemIndex > 1) {
+    if (activeSize === "small" && activeItemIndex >= 1) {
       // Mutating the tabData array order
       const splicedTab = tabData.splice(activeItemIndex, 1);
       tabData.splice(1, 0, splicedTab[0]);
@@ -187,7 +189,9 @@ const Workspace = ({
       // tabData[activeItemIndex].isSelected = false;
       // tabData[activeItemIndex].label = tempTab;
       // tabData[1].isSelected = true;
-      reFocus(1);
+      setTimeout(() => {
+        reFocus(1);
+      }, 0);
     }
 
     // const lastVisibleTab = tabData[activeItemIndex]
