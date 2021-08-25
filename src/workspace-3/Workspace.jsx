@@ -142,43 +142,43 @@ const Workspace = ({
     onSelect: onRequestActivate,
     metaData: child.props.metaData,
   }));
-  const reFocus = (target2) => {
+
+  function reFocus(target) {
     if (refTabsContainer.current) {
-      const tabsCollection =
-        refTabsContainer
+      const tabsCollection = refTabsContainer.current.children[0].children;
+
       let selectedTab;
-
-      console.log(`Tabs container: ${refTabsContainer}`);
-
       for (let i = 0; i < tabsCollection.length; i++) {
         const tabId = tabsCollection[i].id.split("-").pop();
-        if (tabId == target2) {
-          selectedTab = tabsCollection[i + 1];
+        if (tabId == target) {
+          selectedTab = tabsCollection[target];
           selectedTab.focus();
           break;
         }
       }
     }
-  };
+  }
 
   if (activeItemKey !== "tab-1") {
     const activeItemIndex = parseInt(activeItemKey.split("-")[1]) - 1;
 
-    if (activeSize === "medium" && activeItemIndex > 3) {
+    if (activeSize === "medium" && activeItemIndex >= 3) {
       // Mutating the tabData array order
       const splicedTab = tabData.splice(activeItemIndex, 1);
       tabData.splice(3, 0, splicedTab[0]);
 
       // Swaping tab position with the one that is being selected:
-      // const tempTab = tabData[3].label;
+      // const lastVisibleTab = tabData[3].label;
       // tabData[3].label = tabData[activeItemIndex].label;
       // tabData[activeItemIndex].isSelected = false;
-      // tabData[activeItemIndex].label = tempTab;
+      // tabData[activeItemIndex].label = lastVisibleTab;
       // tabData[3].isSelected = true;
-      reFocus(3);
+      setTimeout(() => {
+        reFocus(3);
+      }, 0);
     }
 
-    if (activeSize === "small" && activeItemIndex > 1) {
+    if (activeSize === "small" && activeItemIndex >= 1) {
       // Mutating the tabData array order
       const splicedTab = tabData.splice(activeItemIndex, 1);
       tabData.splice(1, 0, splicedTab[0]);
@@ -189,7 +189,9 @@ const Workspace = ({
       // tabData[activeItemIndex].isSelected = false;
       // tabData[activeItemIndex].label = tempTab;
       // tabData[1].isSelected = true;
-      reFocus(1);
+      setTimeout(() => {
+        reFocus(1);
+      }, 0);
     }
 
     // const lastVisibleTab = tabData[activeItemIndex]
@@ -311,18 +313,18 @@ const Workspace = ({
         </div> */}
 
         {/* <div role="none" className={cx("button-header")}> */}
-          {/* {dismissButton} */}
-          {/* <div className={cx("fill-element")} /> */}
-          {/* {sizeButton} */}
+        {/* {dismissButton} */}
+        {/* <div className={cx("fill-element")} /> */}
+        {/* {sizeButton} */}
         {/* </div> */}
         <div
+          ref={refTabsContainer}
           role="none"
           className={cx("tab-header", {
             "has-dismiss-button": onRequestDismiss && dismissButtonIsVisible,
           })}
         >
           <Tabs
-            ref={refTabsContainer} 
             activeSize={activeSize}
             ariaLabel={ariaLabel}
             tabData={tabData}
