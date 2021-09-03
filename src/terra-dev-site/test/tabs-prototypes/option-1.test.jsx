@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Workspace, { WorkspaceItem } from "../../../workspace";
 import ActiveMainPageContext from "../../../application-container/private/active-main-page/ActiveMainPageContext";
 import Tab1 from "./Tab1";
@@ -27,8 +27,10 @@ const WorkspaceTest = () => {
       data: "data here",
     },
   });
+  const [selectedViewport, setSelectedViewport] = useState("");
 
   const onRequestSizeChange = (size) => {
+    setSelectedViewport(`Viewport size changed to: ${size}`);
     setWorkspaceSize(size);
   };
 
@@ -48,7 +50,9 @@ const WorkspaceTest = () => {
         height: "100%",
       }}
     >
-      <h1 style={{fontSize: "26px", margin: "2rem 0 1.5rem 0"}} >Option 1 Prototype</h1>
+      <h1 style={{ fontSize: "26px", margin: "2rem 0 1.5rem 0" }}>
+        Option 1 Prototype
+      </h1>
       <Button
         href="./tabs-home"
         text="Back"
@@ -96,6 +100,15 @@ const WorkspaceTest = () => {
             onClick={() => onRequestSizeChange("small")}
           />
         </ButtonGroup>
+      </div>
+      <div
+        role="group"
+        tabIndex={-1}
+        style={{ opacity: 0, position: "absolute" }}
+      >
+        <span aria-live="assertive" aria-atomic="true">
+          <span>{selectedViewport}</span>
+        </span>
       </div>
       <ActiveMainPageContext.Provider value={activeMainPageRef.current}>
         <div
