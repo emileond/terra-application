@@ -35,11 +35,11 @@ const StyledContent = ({ tab }) => {
         },
         {
           title: "8.00 hours",
-          date: "Sunday, October 5, 2021",
+          date: "Wednesday, October 5, 2021",
         },
         {
           title: "7.75 hours",
-          date: "Sunday, October 4, 2021",
+          date: "Tuesday, October 4, 2021",
         },
       ],
     },
@@ -67,11 +67,11 @@ const StyledContent = ({ tab }) => {
         },
         {
           title: "8,250 steps",
-          date: "Sunday, October 5, 2021",
+          date: "Wednesday, October 5, 2021",
         },
         {
           title: "1,200 steps",
-          date: "Sunday, October 4, 2021",
+          date: "Tuesday, October 4, 2021",
         },
       ],
     },
@@ -99,11 +99,11 @@ const StyledContent = ({ tab }) => {
         },
         {
           title: "82 minutes",
-          date: "Sunday, October 5, 2021",
+          date: "Wednesday, October 5, 2021",
         },
         {
           title: "12 minutes",
-          date: "Sunday, October 4, 2021",
+          date: "Tuesday, October 4, 2021",
         },
       ],
     },
@@ -131,11 +131,11 @@ const StyledContent = ({ tab }) => {
         },
         {
           title: "157.25 pounds",
-          date: "Sunday, October 5, 2021",
+          date: "Wednesday, October 5, 2021",
         },
         {
           title: "157.00 pounds",
-          date: "Sunday, October 4, 2021",
+          date: "Tuesday, October 4, 2021",
         },
       ],
     },
@@ -163,11 +163,11 @@ const StyledContent = ({ tab }) => {
         },
         {
           title: "82 ounces",
-          date: "Sunday, October 5, 2021",
+          date: "Wednesday, October 5, 2021",
         },
         {
           title: "120 ounces",
-          date: "Sunday, October 4, 2021",
+          date: "Tuesday, October 4, 2021",
         },
       ],
     },
@@ -195,11 +195,11 @@ const StyledContent = ({ tab }) => {
         },
         {
           title: "2,809 calories",
-          date: "Sunday, October 5, 2021",
+          date: "Wednesday, October 5, 2021",
         },
         {
           title: "1,200 calories",
-          date: "Sunday, October 4, 2021",
+          date: "Tuesday, October 4, 2021",
         },
       ],
     },
