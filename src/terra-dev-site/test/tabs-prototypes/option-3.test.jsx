@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import classNames from "classnames/bind";
 import Workspace, { WorkspaceItem } from "../../../workspace-3";
 import ActiveMainPageContext from "../../../application-container/private/active-main-page/ActiveMainPageContext";
 import Tab1 from "./option-3-tabs/Tab1";
@@ -10,15 +11,15 @@ import Tab6 from "./option-3-tabs/Tab6";
 import ButtonGroup from "terra-button-group";
 import Button from "terra-button/lib/Button";
 import IconEdit from "terra-icon/lib/icon/IconLeft";
+import styles from "./Buttongroup.module.scss";
 
+const cx = classNames.bind(styles);
 
 const sizeMap = {
   small: "320px",
   medium: "500px",
   large: "1000px",
 };
-
-
 
 const WorkspaceTest = () => {
   const [activeItemKey, setActiveItemKey] = React.useState("tab-1");
@@ -31,7 +32,7 @@ const WorkspaceTest = () => {
     },
   });
 
-  const [selectedViewport, setSelectedViewport] = useState('');
+  const [selectedViewport, setSelectedViewport] = useState("");
 
   const onRequestSizeChange = (size) => {
     setSelectedViewport(`Viewport size changed to: ${size}`);
@@ -40,6 +41,23 @@ const WorkspaceTest = () => {
 
   const onRequestClose = () => {
     console.log("onRequestClose"); // eslint-disable-line no-console
+  };
+
+  const largeBtn = useRef(null);
+  const mediumBtn = useRef(null);
+  const smallBtn = useRef(null);
+
+  const handleKeyDown = (e, ref) => {
+    const next = ref.current.nextSibling;
+    const prev = ref.current.previousSibling;
+    if (e.key === "ArrowRight") {
+      // eslint-disable-next-line no-unused-expressions
+      next ? next.focus() : ref.current.parentNode.firstChild.focus();
+    }
+    if (e.key === "ArrowLeft") {
+      // eslint-disable-next-line no-unused-expressions
+      prev ? prev.focus() : ref.current.parentNode.lastChild.focus();
+    }
   };
 
   return (
@@ -87,22 +105,50 @@ const WorkspaceTest = () => {
           aria-labelledby="buttongroupLabel"
           id="controlled-button-group"
           selectedKeys={[workspaceSize]}
+          aria-activedescendant={workspaceSize}
         >
-          <ButtonGroup.Button
-            text="Large"
+          <button
+            type="button"
+            className={cx("button-group-button")}
+            style={{ fontSize: "14px", cursor: "pointer", minHeight: "30px" }}
+            ref={largeBtn}
+            tabIndex={focus ? 0 : -1}
             key="large"
             onClick={() => onRequestSizeChange("large")}
-          />
-          <ButtonGroup.Button
-            text="Medium"
+            id="large"
+            aria-pressed={workspaceSize === "large" ? true : false}
+            onKeyDown={(e) => handleKeyDown(e, largeBtn)}
+          >
+            Large
+          </button>
+          <button
+            type="button"
+            className={cx("button-group-button")}
+            style={{ fontSize: "14px", cursor: "pointer", minHeight: "30px" }}
+            ref={mediumBtn}
+            tabIndex={focus ? 0 : -1}
             key="medium"
             onClick={() => onRequestSizeChange("medium")}
-          />
-          <ButtonGroup.Button
-            text="Small"
+            id="medium"
+            aria-pressed={workspaceSize === "medium" ? true : false}
+            onKeyDown={(e) => handleKeyDown(e, mediumBtn)}
+          >
+            Medium
+          </button>
+          <button
+            type="button"
+            className={cx("button-group-button")}
+            style={{ fontSize: "14px", cursor: "pointer", minHeight: "30px" }}
+            ref={smallBtn}
+            tabIndex={focus ? 0 : -1}
             key="small"
             onClick={() => onRequestSizeChange("small")}
-          />
+            id="small"
+            aria-pressed={workspaceSize === "small" ? true : false}
+            onKeyDown={(e) => handleKeyDown(e, smallBtn)}
+          >
+            Small
+          </button>
         </ButtonGroup>
       </div>
       <div
