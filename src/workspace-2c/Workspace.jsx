@@ -245,7 +245,7 @@ const Workspace = ({
     customProps.className
   );
 
-  //Custom code
+  //Custom code note
   const tabsContainerRef = useRef(null);
   const mainContainer = tabsContainerRef.current;
   const [shadowsDisplay, setShadowsDisplay] = useState({
