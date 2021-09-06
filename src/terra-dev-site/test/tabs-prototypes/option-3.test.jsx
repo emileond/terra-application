@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import classNames from "classnames/bind";
 import Workspace, { WorkspaceItem } from "../../../workspace-3";
 import ActiveMainPageContext from "../../../application-container/private/active-main-page/ActiveMainPageContext";
 import Tab1 from "./option-3-tabs/Tab1";
@@ -8,8 +9,11 @@ import Tab4 from "./option-3-tabs/Tab4";
 import Tab5 from "./option-3-tabs/Tab5";
 import Tab6 from "./option-3-tabs/Tab6";
 import ButtonGroup from "terra-button-group";
-import Button from 'terra-button/lib/Button';
-import IconEdit from 'terra-icon/lib/icon/IconLeft';
+import Button from "terra-button/lib/Button";
+import IconEdit from "terra-icon/lib/icon/IconLeft";
+import styles from "./Buttongroup.module.scss";
+
+const cx = classNames.bind(styles);
 
 const sizeMap = {
   small: "320px",
@@ -28,7 +32,10 @@ const WorkspaceTest = () => {
     },
   });
 
+  const [selectedViewport, setSelectedViewport] = useState("");
+
   const onRequestSizeChange = (size) => {
+    setSelectedViewport(`Viewport size changed to: ${size}`);
     setWorkspaceSize(size);
   };
 
@@ -36,28 +43,130 @@ const WorkspaceTest = () => {
     console.log("onRequestClose"); // eslint-disable-line no-console
   };
 
+  const largeBtn = useRef(null);
+  const mediumBtn = useRef(null);
+  const smallBtn = useRef(null);
+
+  const handleKeyDown = (e, ref) => {
+    const next = ref.current.nextSibling;
+    const prev = ref.current.previousSibling;
+    if (e.key === "ArrowRight") {
+      // eslint-disable-next-line no-unused-expressions
+      next ? next.focus() : ref.current.parentNode.firstChild.focus();
+    }
+    if (e.key === "ArrowLeft") {
+      // eslint-disable-next-line no-unused-expressions
+      prev ? prev.focus() : ref.current.parentNode.lastChild.focus();
+    }
+  };
+
   return (
     // eslint-disable-next-line react/forbid-dom-props
-    <div style={{ background: "linear-gradient(180deg, rgba(248,247,248,1) 0%, rgba(222,221,222,1) 100%)", display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "center", height: "100%" }}>
-      <h1 style={{fontSize: "26px", margin: "2rem 0 1.5rem 0"}} >Option 3 Prototype</h1>
-      <Button href="./tabs-home" text="Back" icon={<IconEdit />} variant="ghost" style={{ position: "fixed", top: "32px", left: "32px" }} />
-      <div id="buttongroupLabel" style={{ display: "flex", alignItems: "center", marginBottom: "32px", padding: "12px", borderRadius: "8px", boxShadow: "inset 0px 1px 2px 0px rgba(0,0,0,0.25)", background: "#ebeaeb" }} >
-        <span style={{ textAlign: "left", marginRight: "12px", fontWeight: "bold" }}>Adjust Viewport Size</span>
+    <div
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(248,247,248,1) 0%, rgba(222,221,222,1) 100%)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "start",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
+      <h1 style={{ fontSize: "26px", margin: "2rem 0 1.5rem 0" }}>
+        Option 3 Prototype
+      </h1>
+      <Button
+        href="./tabs-home"
+        text="Back"
+        icon={<IconEdit />}
+        variant="ghost"
+        style={{ position: "fixed", top: "32px", left: "32px" }}
+      />
+      <div
+        id="buttongroupLabel"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          marginBottom: "32px",
+          padding: "12px",
+          borderRadius: "8px",
+          boxShadow: "inset 0px 1px 2px 0px rgba(0,0,0,0.25)",
+          background: "#ebeaeb",
+        }}
+      >
+        <span
+          style={{ textAlign: "left", marginRight: "12px", fontWeight: "bold" }}
+        >
+          Adjust Viewport Size
+        </span>
         <ButtonGroup
           role="group"
           aria-labelledby="buttongroupLabel"
           id="controlled-button-group"
           selectedKeys={[workspaceSize]}
-        // eslint-disable-next-line react/jsx-indent-props
+          aria-activedescendant={workspaceSize}
         >
-          <ButtonGroup.Button text="Large" key="large" onClick={() => onRequestSizeChange("large")} />
-          <ButtonGroup.Button text="Medium" key="medium" onClick={() => onRequestSizeChange("medium")} />
-          <ButtonGroup.Button text="Small" key="small" onClick={() => onRequestSizeChange("small")} />
+          <button
+            type="button"
+            className={cx("button-group-button")}
+            style={{ fontSize: "14px", cursor: "pointer", minHeight: "30px" }}
+            ref={largeBtn}
+            tabIndex={focus ? 0 : -1}
+            key="large"
+            onClick={() => onRequestSizeChange("large")}
+            id="large"
+            aria-pressed={workspaceSize === "large" ? true : false}
+            onKeyDown={(e) => handleKeyDown(e, largeBtn)}
+          >
+            Large
+          </button>
+          <button
+            type="button"
+            className={cx("button-group-button")}
+            style={{ fontSize: "14px", cursor: "pointer", minHeight: "30px" }}
+            ref={mediumBtn}
+            tabIndex={focus ? 0 : -1}
+            key="medium"
+            onClick={() => onRequestSizeChange("medium")}
+            id="medium"
+            aria-pressed={workspaceSize === "medium" ? true : false}
+            onKeyDown={(e) => handleKeyDown(e, mediumBtn)}
+          >
+            Medium
+          </button>
+          <button
+            type="button"
+            className={cx("button-group-button")}
+            style={{ fontSize: "14px", cursor: "pointer", minHeight: "30px" }}
+            ref={smallBtn}
+            tabIndex={focus ? 0 : -1}
+            key="small"
+            onClick={() => onRequestSizeChange("small")}
+            id="small"
+            aria-pressed={workspaceSize === "small" ? true : false}
+            onKeyDown={(e) => handleKeyDown(e, smallBtn)}
+          >
+            Small
+          </button>
         </ButtonGroup>
+      </div>
+      <div
+        role="region"
+        tabIndex={-1}
+        style={{ opacity: 0, position: "absolute" }}
+      >
+        <span aria-live="assertive" aria-atomic="true">
+          <span>{selectedViewport}</span>
+        </span>
       </div>
       <ActiveMainPageContext.Provider value={activeMainPageRef.current}>
         <div
-          style={{ height: "70vh", width: sizeMap[workspaceSize], boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.2)" }} // eslint-disable-line react/forbid-dom-props
+          style={{
+            height: "70vh",
+            width: sizeMap[workspaceSize],
+            boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.2)",
+          }} // eslint-disable-line react/forbid-dom-props
         >
           <Workspace
             id="overlay-test-id"
